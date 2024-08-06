@@ -2,6 +2,7 @@ import { useState } from "react"
 import type { menuItem, OrderIten } from "../types"
 export default function useOder() {
     const [order,setOrder]=useState<OrderIten[]>([])
+    const [tip,setTip]=useState(0)
     const addIten = (item:menuItem) => { 
         const itemExist = order.find(orderItem=>orderItem.id===item.id)
         if (itemExist) {
@@ -17,9 +18,20 @@ export default function useOder() {
         }
 
     }
-    console.log(order)
+    const removeItem = (id:OrderIten['id']) => {
+        setOrder(order.filter(orderItem => orderItem.id !== id))
+    }
+    const placeOrder = () => { 
+        console.log('guardando')
+        
+    }
     return {
-        addIten
+        addIten,
+        order,
+        tip,
+        setTip,
+        removeItem,
+        placeOrder
     }
 }
 /*import { useState } from "react";
