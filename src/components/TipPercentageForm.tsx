@@ -1,9 +1,4 @@
 const tipOptions = [
-    {
-        id: 'tip-0',
-        value: 0,
-        label: '0%'
-        },
         {
         id: 'tip-10',
         value: .10,
